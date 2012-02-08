@@ -157,7 +157,7 @@ case class Gossiper(system: ActorSystemImpl, remote: RemoteActorRefProvider) {
   private val state = {
     val member = Member(remoteAddress, MemberStatus.Joining)
     val gossip = Gossip(self = member, members = SortedSet.empty[Member](memberOrdering) + member)
-    new AtomicReference[State](State(gossip))
+   new AtomicReference[State](State(gossip))
   }
 
   // FIXME manage connections in some other way so we can delete the RemoteConnectionManager (SINCE IT SUCKS!!!)
